@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Cormorant+Upright:wght@300;400;500;600;700&family=Mochiy+Pop+One&family=Shrikhand&family=Tangerine:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --h1-font: 'Agbalumo', system-ui;
+  --p-font: 'Shrikhand', serif;
+  --text-font: 'Tangerine', cursive;
+  --letter-message-font: 'Cormorant Upright', serif;
+  --title-color: #fef0f0;
+  --dark-red: #b41414;
+  --error-color: #ff5e5e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#bg-container {
+  min-height: 100vh;
+  background-image: url('./assets/hearts.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+h1,
+.title-container p {
+  text-shadow:
+    2px 2px 0px var(--dark-red),
+    0 0 35px var(--dark-red);
+}
+
+.title-container {
+  animation: fadeIn 1s ease-in;
+  transition: opacity 0.5s;
+}
+
+/* Envelope */
+
+.envelope-container {
+  position: relative;
+  width: 100%;
+  max-width: 35rem;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.envelope-body {
+  aspect-ratio: 1.6;
+  box-shadow: 0 10px 40px var(--dark-red);
+  background: url('./assets/envelope.png') no-repeat center / cover;
+  transition: transform 0.8s ease-out;
+}
+
+.envelope-flap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 10;
+  background: url('./assets/envelope-close.png') no-repeat center / cover;
+  transform-origin: top;
+  transition:
+    background 0.1s ease 0.4s,
+    transform 0.8s ease-in;
+}
+
+.envelope-flap.open::before {
+  transform: rotateX(180deg) translateY(-10%) translateX(0.5%) scale(1.06);
+  background: url('./assets/envelope-open.png') no-repeat center / cover;
+  height: 50%;
+  width: 100%;
+}
+
+.envelope-labels {
+  transition: opacity 0.5s;
+}
+
+.envelope-labels.hidden {
+  opacity: 0;
+}
+
+.envelope-from,
+.envelope-to,
+.name-input {
+  font-size: clamp(20px, 6vw, 35px);
+  color: var(--dark-red);
+  font-family: var(--text-font);
+  font-weight: 700;
+  background: transparent;
+}
+
+/* Letter */
+
+.letter {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  aspect-ratio: 0.95;
+  background: url('./assets/letter.png') no-repeat center / cover;
+  padding: clamp(20px, 5vw, 40px);
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  z-index: 2;
+  overflow: scroll;
+}
+
+.letter.open {
+  top: -30%;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.letter-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Error message */
+
+.error-message {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
