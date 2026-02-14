@@ -76,7 +76,14 @@ export default function ValentinesFriendship() {
             }}
           >
             {/* Envelope Flap */}
-            <div className={`envelope-flap ${isOpen ? 'open' : ''} relative h-full z-0`}></div>
+            <div
+              className={`envelope-flap ${isOpen ? 'open' : ''} absolute inset-0 h-[50%] w-full`}
+            ></div>
+
+            {/* Sticker */}
+            <div
+              className={`sticker absolute top-[30%] left-[60%] right-[0] w-[35%] h-[60%]`}
+            ></div>
 
             {/* Envelope Labels */}
             <div
@@ -96,7 +103,7 @@ export default function ValentinesFriendship() {
 
               {/* Error message */}
               {showError && !isOpen && (
-                <p className='error-message font-p-font text-[clamp(9px,1.7vw,15px)] text-error-color text-italic absolute w-[150%]'>
+                <p className='error-message font-p-font text-[clamp(9px,1.7vw,15px)] text-dark-red text-italic absolute w-[150%]'>
                   Hmm, I don't have a letter for that name. Double-check your spelling?
                 </p>
               )}
@@ -114,7 +121,7 @@ export default function ValentinesFriendship() {
                       .replace(/^./, (char) => char.toUpperCase())}
                     ,
                   </h2>
-                  <p className='text-[clamp(8px,4vw,20px)] text-dark-red text-left font-letter-message-font leading-relaxed mb-2'>
+                  <p className='whitespace-pre-line text-[clamp(8px,4vw,20px)] text-dark-red text-left font-letter-message-font leading-relaxed mb-4'>
                     {letterMessage}
                   </p>
                   <div className='text-[clamp(10px,5vw,40px)] text-dark-red font-text-font text-center leading-tight'>
