@@ -21,7 +21,7 @@ To protect the privacy of each letter, content is only shown when a valid recipi
 <div align="center">
 
 <img width="400" alt="Title screen" src="https://github.com/user-attachments/assets/91b72595-1712-4af8-abff-9c20ff33c34d" />
-<img width="400" height="783" alt="Screenshot 2026-02-14 at 10 12 58 PM" src="https://github.com/user-attachments/assets/b00e7f23-1826-474f-bd5b-43861ff099e1" />
+<img width="400" alt="Envelope screen" src="https://github.com/user-attachments/assets/b00e7f23-1826-474f-bd5b-43861ff099e1" />
 
 </div>
 
